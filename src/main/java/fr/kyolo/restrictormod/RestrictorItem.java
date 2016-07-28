@@ -28,22 +28,28 @@ public class RestrictorItem extends Item {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack itemStack, EntityPlayer plr, World p_77648_3_, int p_77648_4_,
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer plr, World wrld, int p_77648_4_,
 			int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
+		
+		if(wrld.isRemote)
+			return false;
 		
 		if((Restrictor.isPlayerInOneGroup(plr.getDisplayName()))&&(!Restrictor.isPlayerInDefaultGroup(plr.getDisplayName()))){
 			plr.addChatComponentMessage(new ChatComponentText("You already are in a group"));
 			return false;
 		}
 		
+		boolean playerWasInGroup = Restrictor.isPlayerInOneGroup(plr.getDisplayName());
+		
 		int groupNum = MathHelper.clamp_int(itemStack.getItemDamage(), 0, Restrictor.getGroupNumber());
 		
 		Restrictor.addPlayerToGroup(groupNum, plr.getDisplayName());
-		Restrictor.removePlayerFromGroup(plr.getDisplayName(), "default");
+		if(playerWasInGroup)
+			Restrictor.removePlayerFromGroup(plr.getDisplayName(), "default");
 		
 		plr.inventory.consumeInventoryItem(itemStack.getItem());
 		
-		return false;
+		return true;
 	}
 
 	@Override

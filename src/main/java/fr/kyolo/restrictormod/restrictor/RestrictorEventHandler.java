@@ -22,7 +22,7 @@ public class RestrictorEventHandler {
 		RestrictionGroup group = Restrictor.getGroupByPlayerName(playerName);
 		
 		if(group==null)
-			return;
+			group = Restrictor.getGroupByName(Restrictor.DEFAULT_NAME);
 		
 		if(!group.isAllowed(event.item.getEntityItem().getItem()))
 			event.setCanceled(true);
@@ -47,7 +47,7 @@ public class RestrictorEventHandler {
 		RestrictionGroup group = Restrictor.getGroupByPlayerName(playerName);
 		
 		if(group==null)
-			return;
+			group = Restrictor.getGroupByName(Restrictor.DEFAULT_NAME);
 		
 		ItemStack[] inventory = event.player.inventory.mainInventory;
 		
