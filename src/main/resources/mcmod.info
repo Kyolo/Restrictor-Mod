@@ -2,7 +2,7 @@
 {
   "modid": "restrictormod",
   "name": "Restrictor Mod",
-  "description": "This mod allow making groups of player, forbidden of using some items",
+  "description": "This mod allow making groups of player, forbidden of having some items",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

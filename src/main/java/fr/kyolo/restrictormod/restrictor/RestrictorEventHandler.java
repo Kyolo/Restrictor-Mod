@@ -71,6 +71,10 @@ public class RestrictorEventHandler {
 	
 	@SubscribeEvent
 	public void tooltipEvent(ItemTooltipEvent event){
+		
+		if(!Restrictor.isPlayerInOneGroup(event.entityPlayer.getDisplayName()))
+			return;
+		
 		RestrictionGroup group = Restrictor.getGroupByPlayerName(event.entityPlayer.getDisplayName());
 		
 		if(!group.isAllowed(event.itemStack.getItem())){
