@@ -1,0 +1,16 @@
+[
+{
+  "modid": "restrictormod",
+  "name": "Restrictor Mod",
+  "description": "This mod allow making groups of player, forbidden of using some items",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Kyolo a.k.a malexan68"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
